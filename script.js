@@ -29,8 +29,10 @@ fetch(apiUrl)
 
     const option1 = document.getElementById("option1");
     option1.textContent = randomRow1.premise_name + " on " + randomRow1.premise_adr1_street;
+    
     const option2 = document.getElementById("option2");
     option2.textContent = randomRow2.premise_name + " on " + randomRow2.premise_adr1_street;
+    
     const option3 = document.getElementById("option3");
     option3.textContent = randomRow3.premise_name + " on " + randomRow3.premise_adr1_street;
   
