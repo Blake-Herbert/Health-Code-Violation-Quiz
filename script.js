@@ -25,7 +25,7 @@ fetch(apiUrl)
     const inspectionDate = formatDate(randomRow1.InspectionDate) || "N/A";
     
     const promptDiv = document.getElementById("prompt");
-    promptDiv.textContent = "Who got the violation: \"" + randomRow1.Insp_Viol_Comments + "\" on " + inspectionDate;
+    promptDiv.textContent = "Who got the violation: \"" + randomRow1.Insp_Viol_Comments + "\" on " + inspectionDate + "?";
 
     const option1 = document.getElementById("option1");
     option1.textContent = randomRow1.premise_name + " on " + randomRow1.premise_adr1_street;
