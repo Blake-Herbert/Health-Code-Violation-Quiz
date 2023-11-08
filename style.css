@@ -5,4 +5,5 @@
 
 .custom-box:hover {
     background-color: hsl(171, 98%, 30%);
+    cursor: pointer;
 }

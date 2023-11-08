@@ -8,28 +8,42 @@ function formatDate(timestamp) {
   return "N/A";
 }
 
+
+
+
 fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
     const features = data.features;
     
-    const randomRow1 = features[Math.floor(Math.random() * features.length)].attributes;
-    const randomRow2 = features[Math.floor(Math.random() * features.length)].attributes;
-    const randomRow3 = features[Math.floor(Math.random() * features.length)].attributes;
-
-    const inspectionDate = formatDate(randomRow1.InspectionDate) || "N/A";
+    const correctAnswer = features[Math.floor(Math.random() * features.length)].attributes;
+    const incorrectAnswer1 = features[Math.floor(Math.random() * features.length)].attributes;
+    const incorrectAnswer2 = features[Math.floor(Math.random() * features.length)].attributes;
     
+    const inspectionDate = formatDate(correctAnswer.InspectionDate) || "N/A";
+    
+    const answers = [correctAnswer, incorrectAnswer1, incorrectAnswer2];
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    shuffleArray(answers);
+
     const promptDiv = document.getElementById("prompt");
-    promptDiv.textContent = "\"" + randomRow1.Insp_Viol_Comments + "\" - " + inspectionDate;
+    promptDiv.textContent = "\"" + correctAnswer.Insp_Viol_Comments + "\" - " + inspectionDate;
 
     const option1 = document.getElementById("option1");
-    option1.textContent = randomRow1.premise_name + " on " + randomRow1.premise_adr1_street;
+    option1.textContent = answers[0].premise_name + " on " + answers[0].premise_adr1_street;
     
     const option2 = document.getElementById("option2");
-    option2.textContent = randomRow2.premise_name + " on " + randomRow2.premise_adr1_street;
+    option2.textContent = answers[1].premise_name + " on " + answers[1].premise_adr1_street;
     
     const option3 = document.getElementById("option3");
-    option3.textContent = randomRow3.premise_name + " on " + randomRow3.premise_adr1_street;
+    option3.textContent = answers[2].premise_name + " on " + answers[2].premise_adr1_street;
   
   
   })
