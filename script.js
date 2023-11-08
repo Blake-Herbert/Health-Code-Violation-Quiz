@@ -12,15 +12,10 @@ fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
     const features = data.features;
-    const randomIndex1 = Math.floor(Math.random() * features.length);
-    const randomIndex2 = Math.floor(Math.random() * features.length);
-    const randomIndex3 = Math.floor(Math.random() * features.length);
-
-    const randomRow1 = features[randomIndex1].attributes;
-    const randomRow2 = features[randomIndex2].attributes;
-    const randomRow3 = features[randomIndex3].attributes;
-
-    console.log(randomRow1.premise_name);
+    
+    const randomRow1 = features[Math.floor(Math.random() * features.length)].attributes;
+    const randomRow2 = features[Math.floor(Math.random() * features.length)].attributes;
+    const randomRow3 = features[Math.floor(Math.random() * features.length)].attributes;
 
     const inspectionDate = formatDate(randomRow1.InspectionDate) || "N/A";
     
