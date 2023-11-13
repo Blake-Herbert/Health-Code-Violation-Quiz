@@ -70,13 +70,15 @@ fetch(apiUrl)
     // Check the 'isCorrect' attribute to determine if the clicked option is correct.
     const isCorrect = clickedData.isCorrect;
 
-    // Display a message based on whether the clicked option is correct.
+    // Update the color of the clicked option based on correctness.
     if (isCorrect) {
+      clickedOption.style.backgroundColor = "green"; // Change color to green for correct answer.
       alert("Correct answer!");
     } else {
+      clickedOption.style.backgroundColor = "red"; // Change color to red for incorrect answer.
       alert("Incorrect answer. Try again.");
     }
-    }
+  }
   }
 )
   .catch(error => {
