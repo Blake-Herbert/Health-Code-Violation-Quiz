@@ -7,3 +7,9 @@
     background-color: hsl(171, 98%, 30%);
     cursor: pointer;
 }
+
+.custom-header {
+  background-color: hsl(171, 100%, 41%);
+  color: #ffffff;
+  padding: 1rem;
+}
